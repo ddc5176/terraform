@@ -18,7 +18,7 @@ pipeline
  def tfHome = tool name: ‘Terraform’
  env.PATH = “${tfHome}${env.PATH}”
  }
- sh ‘terraform — version’
+ sh label: '', script: 'terraform --version'
  }
  }
  stage(‘terraform’)
