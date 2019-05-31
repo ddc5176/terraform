@@ -26,11 +26,8 @@ pipeline
  { 
  steps 
  {
- dir(‘master’)
- {
- sh ‘terraform init’
- sh ‘terraform apply’
- }
+ sh label: '', script: 'terraform init'
+ sh label: '', script: 'terraform apply'
  }
  }
  
