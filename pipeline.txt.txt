@@ -1,0 +1,39 @@
+pipeline 
+{
+ agent any
+ stages
+ {
+ stage(‘checkout’) 
+ {
+ steps 
+ {
+   checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '18200100-ab83-4245-abcd-b4cafba2b6ca', url: 'https://github.com/ddc5176/terraform.git']]])
+ }
+ }
+ 
+ stage(‘Set Terraform path’) 
+ {
+ steps 
+ {
+ script 
+ {
+ def tfHome = tool name: ‘Terraform’
+ env.PATH = “${tfHome}:${env.PATH}”
+ }
+ }
+ }
+ 
+ stage(‘Provision infrastructure’)
+ { 
+ steps 
+ {
+ dir(‘master’)
+ {
+ sh ‘terraform init’
+ sh ‘terraform apply’
+ }
+ }
+ }
+ 
+ }
+}
