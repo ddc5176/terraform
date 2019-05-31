@@ -25,8 +25,7 @@ pipeline
  { 
  steps 
  {
- sh label: '', script: 'terraform init'
- sh label: '', script: 'terraform apply'
+ sh 'sudo /usr/local/bin/terraform init'
  }
  }
  
