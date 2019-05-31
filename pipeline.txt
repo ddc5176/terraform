@@ -11,7 +11,7 @@ pipeline
  }
  }
  
- stage(‘Path’) 
+ /*stage(‘Path’) 
  {
  steps {
  script {
@@ -20,7 +20,7 @@ pipeline
  }
  sh label: '', script: 'terraform --version'
  }
- }
+ }*/
  stage(‘terraform’)
  { 
  steps 
