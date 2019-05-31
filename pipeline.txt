@@ -11,17 +11,6 @@ pipeline
  }
  }
  
- stage(‘path’) 
- {
- steps 
- {
- script 
- {
- def tfHome = tool name: ‘Terraform’
- }
- }
- }
- 
  stage(‘terraform’)
  { 
  steps 
