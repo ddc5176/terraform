@@ -1,12 +1,9 @@
 provider "aws"
  {
-  access_key = "AKIAIJDYBFP3PAKRPGOQ"
-  secret_key = "BSTrP9iTx+1QoVyK/Vv6/H0pIiLNR+qM9lOVyctf"
   region     = "ap-south-1"
  }resource "aws_security_group" "default"
  {
   name = "terraform-example-instance"
-  vpc_id = "vpc-066c476e"  
   
   ingress
  {
